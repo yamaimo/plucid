@@ -1,4 +1,3 @@
-R=
 DESTDIR=/usr/local/bin
 CFLAGS=-O -DYYMAXDEPTH=900
 LINT= lint -p
@@ -10,7 +9,7 @@ pass4: main.o y.tab.o yylex.o expr.o walk.o;
 	cc  -g main.o expr.o y.tab.o yylex.o walk.o -o pass4
 
 cp install:
-	cp pass4 $R$(DESTDIR)/pass4
+	cp pass4 $(DESTDIR)/pass4
 	rm -f *.o y.tab.h y.tab.c pass4
 
 clean:
@@ -28,7 +27,7 @@ print:
 
 all:    main.o y.tab.o yylex.o expr.o walk.o ;
 	cc  -g main.o expr.o y.tab.o yylex.o walk.o -o pass4
-	cp pass4 $R$(DESTDIR)/pass4
+	cp pass4 $(DESTDIR)/pass4
 	rm -f *.o y.tab.h y.tab.c pass4
 
 main.o: $(inc) main.c

@@ -1,6 +1,6 @@
 If you have Berkely 4.2  or System 5 or SUN O/S Version 4
 you should have little trouble with installating
-this on a 32 bit machine (see READ_ME in the evaluator directory). 
+this on a 32 bit machine (see README in the evaluator directory). 
 
 If you are not running on UNIX or a UNIX-like system you will have
 to do a little work to get your Lucid interpreter working. In particular
@@ -13,6 +13,7 @@ own yacc to generate these. If you do not have yacc you can use the
 y.tab.c and y.tab.h provided.
 
 There are 9 subdirectories:
+        manual          :lucid programming manual/UNIX manual entry
         p1              :Source for filter1 (lucid -> lucid parse tree(pt))
                                           i.e. checks for syntax errors.
         p2              :Source for filter2 (lucid pt -> lucid pt)
@@ -21,11 +22,10 @@ There are 9 subdirectories:
                                           expands upon and whenever.
         p4              :Source for filter4(lucid pt->structured lucid pt)
         p5              :Source for filter5 (s-lucid pt -> lucid i-code)
-	evaluator	:Source for the lucid evaluator
-        manual          :lucid programming manual/UNIX manual entry
-        progs           :Example lucid programs
-        shell_scripts   :Scripts for compiling and/or running
+        evaluator	    :Source for the lucid evaluator
+        scripts         :Scripts for compiling and/or running
                          lucid programs
+        examples        :Example lucid programs
 
 
 Installing lucid

@@ -1,4 +1,3 @@
-R=
 DESTDIR=/usr/local/bin
 CFLAGS= -g 
 LINT= lint -p
@@ -14,7 +13,7 @@ luval: main.o f_flucid.o input.o dynamic.o util.o \
 		-o luval
 
 cp install: luval
-	cp luval $R$(DESTDIR)/luval
+	cp luval $(DESTDIR)/luval
 	rm luval *.o
 
 clean:
@@ -42,7 +41,7 @@ all: main.o input.o dynamic.o util.o f_flucid.o\
 		util.o dump.o rupture.o f_decls.o f_alg.o \
 		f_lucid.o f_vars.o string.o f_flucid.o list.o real.o -lm \
 		-o luval
-	cp luval $R$(DESTDIR)/luval
+	cp luval $(DESTDIR)/luval
 	rm -f *.o luval
 
 main.o: $(mac) main.c

@@ -1,4 +1,3 @@
-R=
 DESTDIR=/usr/local/bin
 CFLAGS=-O -DYYMAXDEPTH=900
 LINT= lint -p
@@ -10,7 +9,7 @@ pass3: main.o y.tab.o yylex.o expr.o ;
 	cc -s main.o expr.o y.tab.o yylex.o -o pass3
 
 cp install:
-	cp pass3 $R$(DESTDIR)/pass3
+	cp pass3 $(DESTDIR)/pass3
 	rm -f *.o y.tab.h y.tab.c pass3
 
 clean:
@@ -28,7 +27,7 @@ print:
 
 all:    main.o y.tab.o yylex.o expr.o ;
 	cc -s main.o expr.o y.tab.o yylex.o -o pass3
-	cp pass3 $R$(DESTDIR)/pass3
+	cp pass3 $(DESTDIR)/pass3
 	rm -f *.o y.tab.h y.tab.c pass3
 
 main.o: $(inc) main.c

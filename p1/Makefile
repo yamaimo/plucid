@@ -1,5 +1,4 @@
-R=
-DESTDIR= /lucy/a/wwadge/nulu
+DESTDIR=/usr/local/bin
 CFLAGS=-O -DYYMAXDEPTH=900
 LINT= lint -p
 TAR= tar -cv
@@ -9,7 +8,7 @@ pass1: main.o y.tab.o yylex.o expr.o ;
 	cc -s -DYYMAXDEPTH=900 main.o expr.o y.tab.o yylex.o -o pass1
 
 cp install:
-	cp pass1 $R$(DESTDIR)/pass1
+	cp pass1 $(DESTDIR)/pass1
 	rm -f *.o y.tab.h y.tab.c pass1
 
 clean:
@@ -25,7 +24,7 @@ tape:
 
 all:    main.o y.tab.o yylex.o expr.o ;
 	cc -s -DYYMAXDEPTH=900 main.o expr.o y.tab.o yylex.o -o pass1
-	cp pass1 $R$(DESTDIR)/pass1
+	cp pass1 $(DESTDIR)/pass1
 	rm -f *.o y.tab.h y.tab.c pass1
 
 main.o: $(inc) main.c
