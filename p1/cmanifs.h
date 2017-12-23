@@ -1,11 +1,13 @@
+#pragma once
+
 #include <stdio.h>
 #include <ctype.h>
-#include "y.tab.h"
 
 #define NKEYWORDS         162
 #define BUFFERLENGTH      200
 #define NESTINGDEPTH       50
 #define NOOFFILES          12
+
 #define F_CONST             1
 #define F_VAR               2
 #define F_OP                3
@@ -18,59 +20,66 @@
 #define F_BODY             10
 #define F_FILE             11
 
-#define YYSTYPE union stacktype
-
-typedef struct RES  RES,  *RESPTR;
-typedef struct EXPR EXPR, *EXPRPTR;
-typedef char              *STRING;
+typedef char* STRING;
+typedef struct EXPR* EXPRPTR;
 
 typedef union X_OR_I {
-		       int      i;
-		       float    r;
-		       char    *s;
-		       EXPRPTR  x;
-		     } X_OR_I;
+    int     i;
+    float   r;
+    STRING  s;
+    EXPRPTR x;
+} X_OR_I;
+
+typedef struct EXPR {
+    int     f;
+    X_OR_I  arg1;
+    X_OR_I  arg2;
+    X_OR_I  arg3;
+    X_OR_I  arg4;
+    X_OR_I  arg5;
+} EXPR;
 
 typedef struct EXPR2 {
-		       int     f;
-		       X_OR_I  arg1, arg2;
-		     } EXPR2;
+    int     f;
+    X_OR_I  arg1;
+    X_OR_I  arg2;
+} EXPR2;
 
 typedef struct EXPR3 {
-		       int     f;
-		       X_OR_I  arg1,arg2,arg3;
-		     } EXPR3;
+    int     f;
+    X_OR_I  arg1;
+    X_OR_I  arg2;
+    X_OR_I  arg3;
+} EXPR3;
 
 typedef struct EXPR4 {
-		       int     f;
-		       X_OR_I  arg1,arg2,arg3,arg4;
-		     } EXPR4;
+    int     f;
+    X_OR_I  arg1;
+    X_OR_I  arg2;
+    X_OR_I  arg3;
+    X_OR_I  arg4;
+} EXPR4;
 
 typedef struct EXPR5 {
-		       int     f;
-		       X_OR_I  arg1,arg2,arg3,arg4,arg5;
-		     } EXPR5;
+    int     f;
+    X_OR_I  arg1;
+    X_OR_I  arg2;
+    X_OR_I  arg3;
+    X_OR_I  arg4;
+    X_OR_I  arg5;
+} EXPR5;
 
-struct EXPR          {
-		       int     f;
-		       X_OR_I  arg1, arg2, arg3, arg4,arg5;
-		     };
+typedef struct RES {
+    int     len;
+    int     line;
+    STRING  strg;
+} RES;
+typedef RES* RESPTR;
 
-
-struct RES           {
-		       int     len;
-		       int     line;
-		       char   *strg;
-		     };
-
-union stacktype      {
-
-		       /* for numbers returned by yylex */
-		       float numb;
-
-		       /* for symbol table entries returned by yylex */
-		       RESPTR resptr;
-
-		       /* for expressions pointers returned by yacc actions */
-		       EXPRPTR eptr;
-		     };
+typedef union stacktype {
+    float   numb;   /* for numbers returned by yylex */
+    RESPTR  resptr; /* for symbol table entries returned by yylex */
+    EXPRPTR eptr;   /* for expressions pointers returned by yacc actions */
+} YYSTYPE;
+#define YYSTYPE_IS_DECLARED 1
+#include "y.tab.h"
