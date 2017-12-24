@@ -1,9 +1,5 @@
 #pragma once
 
-#include <stdio.h>
-#include <ctype.h>
-
-#define NKEYWORDS         162
 #define BUFFERLENGTH      200
 #define NESTINGDEPTH       50
 #define NOOFFILES          12

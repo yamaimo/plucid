@@ -1,27 +1,27 @@
-DESTDIR=/usr/local/bin
+CC=clang
 CFLAGS=-O -DYYMAXDEPTH=900
-inc = cmanifs.h cglobals.h
+DESTDIR=/usr/local/bin
+INC = cmanifs.h cglobals.h y.tab.h
 
-pass2: main.o y.tab.o yylex.o expr.o ;
-	cc -s main.o expr.o y.tab.o yylex.o -o pass2
+.PHONY: all cp install clean
 
-all:    main.o y.tab.o yylex.o expr.o ;
-	cc -s main.o expr.o y.tab.o yylex.o -o pass2
+all: pass2
+
+pass2: main.o y.tab.o yylex.o expr.o cglobals.o
+	$(CC) $(CFLAGS) -o pass2 main.o y.tab.o yylex.o expr.o cglobals.o
+
+cp install:
 	cp pass2 $(DESTDIR)/pass2
 	rm -f *.o y.tab.h y.tab.c pass2
 
 clean:
-	rm -f *.o y.tab.h y.tab.c pass1
+	rm -f *.o y.tab.h y.tab.c pass2
 
-cglobals.h:
-cmanifs.h: y.tab.h
+main.o: $(INC) main.c
+y.tab.o: $(INC) y.tab.c
+yylex.o: $(INC) yylex.c
+expr.o: $(INC) expr.c
+cglobals.o: $(INC) cglobals.c
+
 y.tab.c y.tab.h: tree.y
 	yacc -d tree.y
-tree.y:
-main.c:
-yylex.c:
-expr.c:
-y.tab.o: $(inc) y.tab.h y.tab.c
-main.o:  $(inc) main.c
-yylex.o: $(inc) yylex.c
-expr.o: $(inc) expr.c

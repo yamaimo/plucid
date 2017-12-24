@@ -5,16 +5,17 @@
 #include "cmanifs.h"
 #include "cglobals.h"
 
-STRING fname;
-
 int yyparse(void);  /* y.tab.c */
 
-void initialise(void);
-void connect_file(int argc, char** argv);
 void output(EXPRPTR p);
 STRING strsave(char* s);
-int eqstring(STRING a, STRING b);
 void my_exit(int n);
+
+static void initialise(void);
+static void connect_file(int argc, char** argv);
+static int eqstring(STRING a, STRING b);
+
+STRING fname;
 
 int main(int argc, char** argv)
 {
@@ -56,7 +57,7 @@ void accept(void)
 }
 */
 
-void initialise(void)
+static void initialise(void)
 {
     int i;
 
@@ -86,7 +87,7 @@ void initialise(void)
     /* No newline character has been encountered */
 }
 
-void connect_file(int argc, char** argv)
+static void connect_file(int argc, char** argv)
 {
     /* connect to source file */
     if (argc > 1)
@@ -274,7 +275,7 @@ STRING strsave(char* s)
     return p;
 }
 
-int eqstring(STRING a, STRING b)
+static int eqstring(STRING a, STRING b)
 {
     while (*a++ == *b++)
     {

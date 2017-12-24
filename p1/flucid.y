@@ -8,7 +8,6 @@
 
 int yylex(void);    /* yylex.c */
 %}
-
 %term
     LU0FUNC LU1FUNC LU2FUNC LU3FUNC
     WHERE END IS CURRENT

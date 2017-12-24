@@ -16,9 +16,10 @@
 /**************************************************************/
 
 #define NSYNWORDS  62
+#define NKEYWORDS 162
 
 STRING strsave(char* s);    /* main.c */
-void my_exit(int n);         /* main.c */
+void my_exit(int n);        /* main.c */
 
 int yylex(void);
 
@@ -779,7 +780,7 @@ static int lexgetc(void)
 
 static STRING getword(char c)
 {
-    int l;
+    int l;  // uninitialized. extern?
     STRING p = buffer;
 
     switch (c)
@@ -898,7 +899,7 @@ static STRING getword(char c)
 
 static STRING getword2(int c)
 {
-    int l;
+    int l;  // uninitialized. extern?
     STRING p = buffer;
 
     switch(c) {
