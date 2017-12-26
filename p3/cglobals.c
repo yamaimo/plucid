@@ -1,5 +1,7 @@
 #include "cglobals.h"
 
+int wvr_upon_count;
+
 int l;
 int c;
 int peekc;
@@ -8,7 +10,7 @@ int in_index;
 int true_;
 int false_;
 
-char noclashes;
+char* largest;
 char cconst;
 char linebuf[BUFFERLENGTH];
 

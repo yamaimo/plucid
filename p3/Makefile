@@ -1,12 +1,14 @@
-DESTDIR=/usr/local/bin
+CC=clang
 CFLAGS=-O -DYYMAXDEPTH=900
-LINT= lint -p
-TAR= tar -cv
-PRINT= pr -t $1 | cat -n
-inc = cmanifs.h cglobals.h
+DESTDIR=/usr/local/bin
+INC = cmanifs.h cglobals.h y.tab.h
 
-pass3: main.o y.tab.o yylex.o expr.o ;
-	cc -s main.o expr.o y.tab.o yylex.o -o pass3
+.PHONY: all cp install clean
+
+all: pass3
+
+pass3: main.o y.tab.o yylex.o expr.o cglobals.o
+	$(CC) $(CFLAGS) -o pass3 main.o y.tab.o yylex.o expr.o cglobals.o
 
 cp install:
 	cp pass3 $(DESTDIR)/pass3
@@ -15,25 +17,11 @@ cp install:
 clean:
 	rm -f *.o y.tab.h y.tab.c pass3
 
-lint:   main.c expr.c yylex.c
-	$(LINT) main.c expr.c yylex.c
+main.o: $(INC) main.c
+y.tab.o: $(INC) y.tab.c
+yylex.o: $(INC) yylex.c
+expr.o: $(INC) expr.c
+cglobals.o: $(INC) cglobals.c
 
-tape:
-	$(TAR) main.c expr.c yylex.c cmanifs.h cglobals.h tree.y
-
-print:
-	$(PRINT) main.c expr.c yylex.c cmanifs.h cglobals.h tree.y
-
-
-all:    main.o y.tab.o yylex.o expr.o ;
-	cc -s main.o expr.o y.tab.o yylex.o -o pass3
-	cp pass3 $(DESTDIR)/pass3
-	rm -f *.o y.tab.h y.tab.c pass3
-
-main.o: $(inc) main.c
-cmanifs.h: y.tab.h
 y.tab.c y.tab.h: tree.y
 	yacc -d tree.y
-y.tab.o: $(inc) y.tab.h y.tab.c
-yylex.o: $(inc) yylex.c
-expr.o: $(inc) expr.c

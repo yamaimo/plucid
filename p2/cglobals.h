@@ -26,7 +26,7 @@ struct in_file {
     STRING  in_name;
     int     in_line;
 };
-extern struct in_file   in_files[NOOFFILES];
+extern struct in_file in_files[NOOFFILES];
 
 extern STRING s;
 extern STRING t;

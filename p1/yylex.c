@@ -902,7 +902,8 @@ static STRING getword2(int c)
     int l;  // uninitialized. extern?
     STRING p = buffer;
 
-    switch(c) {
+    switch (c)
+    {
     case ';':
     case ',':
     case '.':

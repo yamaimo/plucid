@@ -23,13 +23,14 @@ int main(int argc, char** argv)
     int temp;
 
     initialise();
-    connect_file(argc,argv);
+    connect_file(argc, argv);
     temp = yyparse();
-    if ( temp || errcount )
+    if (temp || errcount)
     {
         fprintf(stderr, "Fatal errors: no expression file written.\n");
         my_exit(1);
     }
+    return 0;
 }
 
 /*
@@ -40,8 +41,6 @@ accept()
 
 static void initialise(void)
 {
-    int i;
-
     /* initialise the simple variables */
 
     true_ = 1;
@@ -126,10 +125,10 @@ void output(EXPRPTR p)
             }
             else
             {
-               fprintf(
-                   stdout,
-                   " [ const [ numb %-10.5f ] ",
-                   p->arg2.r);
+                fprintf(
+                    stdout,
+                    " [ const [ numb %-10.5f ] ",
+                    p->arg2.r);
             }
             fprintf(stdout, " ] ");
             return;
@@ -165,14 +164,17 @@ void output(EXPRPTR p)
         return;
     case F_DEFN:
         fprintf(stdout, " [ defn %s %d ", p->arg1.s, p->arg2.i);
-        if (p->arg2.i >0 ) output(p->arg3.x);
+        if (p->arg2.i > 0)
+        {
+            output(p->arg3.x);
+        }
         output(p->arg4.x);
-        fprintf(stdout," ] ");
+        fprintf(stdout, " ] ");
         return;
     case F_DECL:
-        fprintf(stdout," [ decl %s ",p->arg1.s);
+        fprintf(stdout, " [ decl %s ", p->arg1.s);
         output(p->arg2.x);
-        fprintf(stdout," ] ");
+        fprintf(stdout, " ] ");
         return;
     case F_IDENTLISTNODE:
         if (p->arg1.x == NULL)

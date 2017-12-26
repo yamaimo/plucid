@@ -278,6 +278,7 @@ EXPRPTR listnode(EXPRPTR tail, EXPRPTR expr)
 	return p;
 }
 
+/*
 EXPRPTR exprlist2(EXPRPTR expr1, EXPRPTR expr2)
 {
 	EXPRPTR p1 = (EXPRPTR)calloc(1, sizeof(EXPR2));
@@ -291,6 +292,7 @@ EXPRPTR exprlist2(EXPRPTR expr1, EXPRPTR expr2)
 	p2->arg2.x = expr2;
 	return p2;
 }
+*/
 
 int yyerror(STRING a)
 {

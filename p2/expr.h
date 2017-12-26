@@ -13,6 +13,6 @@ EXPRPTR defnode(char* name, int argcount, EXPRPTR argnames, EXPRPTR expr, EXPRPT
 EXPRPTR declnode(char* name, EXPRPTR expr, EXPRPTR file);
 EXPRPTR identlistnode(EXPRPTR tail, char* name);
 EXPRPTR listnode(EXPRPTR tail, EXPRPTR expr);
-EXPRPTR exprlist2(EXPRPTR expr1, EXPRPTR expr2);
+//EXPRPTR exprlist2(EXPRPTR expr1, EXPRPTR expr2);
 
 int yyerror(STRING a);

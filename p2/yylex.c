@@ -54,7 +54,7 @@ int yylex(void)
         if ((k = keyfind(s)) != NKEYWORDS && cconst)
         {
             yylval.strg = keywords[k].keyname;
-            cconst=false_;
+            cconst = false_;
             return keywords[k].keyret;
         }
         yylval.strg = s;
@@ -115,7 +115,8 @@ static STRING getword(char c)
     STRING p;
 
     p = buffer;
-    switch(c) {
+    switch (c)
+    {
     case ';':
     case ',':
     case '.':
@@ -129,7 +130,7 @@ static STRING getword(char c)
         *p++ = c;
         l++;
         c = lexgetc();
-        if (c == ']' || c==')')
+        if (c == ']' || c == ')')
         {
             *p++ = c;
             l++;
@@ -161,7 +162,7 @@ static STRING getword(char c)
             c = lexgetc();
             break;
         }
-        fprintf(stderr,"ERROR2");
+        fprintf(stderr, "ERROR2");
         my_exit(1);
     case '+':
     case '-':
@@ -184,7 +185,7 @@ static STRING getword(char c)
         }
         break;
     default:
-        if (isalpha(c) || c=='@')
+        if (isalpha(c) || c == '@')
         {
             *p++ = c;
             l++;

@@ -25,7 +25,7 @@ typedef union X_OR_I {
 
 typedef struct EXPR {
     int     f;
-	X_OR_I  arg1;
+    X_OR_I  arg1;
     X_OR_I  arg2;
     X_OR_I  arg3;
     X_OR_I  arg4;
@@ -33,29 +33,29 @@ typedef struct EXPR {
 } EXPR;
 
 typedef struct EXPR2 {
-	int     f;
-	X_OR_I  arg1;
+    int     f;
+    X_OR_I  arg1;
     X_OR_I  arg2;
 } EXPR2;
 
 typedef struct EXPR3 {
-	int     f;
-	X_OR_I  arg1;
+    int     f;
+    X_OR_I  arg1;
     X_OR_I  arg2;
     X_OR_I  arg3;
 } EXPR3;
 
 typedef struct EXPR4 {
-	int     f;
-	X_OR_I  arg1;
+    int     f;
+    X_OR_I  arg1;
     X_OR_I  arg2;
     X_OR_I  arg3;
     X_OR_I  arg4;
 } EXPR4;
 
 typedef struct EXPR5 {
-	int     f;
-	X_OR_I  arg1;
+    int     f;
+    X_OR_I  arg1;
     X_OR_I  arg2;
     X_OR_I  arg3;
     X_OR_I  arg4;
@@ -63,8 +63,8 @@ typedef struct EXPR5 {
 } EXPR5;
 
 typedef union stacktype {
-    float   numb;     /* for numbers returned by yylex */
-    STRING  strg;     /* for symbol table entries returned by yylex */
+    float   numb;   /* for numbers returned by yylex */
+    STRING  strg;   /* for symbol table entries returned by yylex */
     EXPRPTR eptr;   /* for expressions pointers returned by yacc actions */
 } YYSTYPE;
 #define YYSTYPE_IS_DECLARED 1
