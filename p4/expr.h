@@ -13,8 +13,11 @@ EXPRPTR declnode(char* name, EXPRPTR expr);
 EXPRPTR identlistnode(EXPRPTR tail, char* name);
 EXPRPTR listnode(EXPRPTR tail, EXPRPTR expr);
 EXPRPTR exprlist2(EXPRPTR expr1, EXPRPTR expr2);
-EXPRPTR exprlist3(EXPRPTR expr1, EXPRPTR expr2, EXPRPTR expr3);
 
-EXPRPTR expand_wvr_upon(EXPRPTR arg);
+EXPRPTR eglobnode(EXPRPTR namelist);
+EXPRPTR nglobnode(EXPRPTR namelist);
+EXPRPTR valofnode(EXPRPTR exprlist);
+EXPRPTR evalofnode(EXPRPTR exprlist);
 
 int yyerror(STRING a);
+

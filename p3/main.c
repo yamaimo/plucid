@@ -55,7 +55,6 @@ static void printfilter(STRING newname)
 
 int main(int argc, char** argv)
 {
-    int i;
     int temp;
 
     initialise();

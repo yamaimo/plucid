@@ -1,21 +1,52 @@
-#define copy(x,y) x = y
+#pragma once
 
-int ffcount,fflevel,funclevel,f_level[100],valoflevel,currentlevel;
-EXPRPTR used_list[100],defined_list[100],new_defs[100],new_decls[100];
-EXPRPTR formals_list[100];
-FFPTR new_def[100];
-int l,c,peekc,errcount,in_index,true,false;
+#include <stdio.h>
+#include "cmanifs.h"
 
-char cconst,linebuf[200],buffer[500];
+#define LIST_SIZE 100
 
-FILE *lexin, *outfile,*savelex;
+extern int ffcount;
+extern int fflevel;
+extern int funclevel;
+extern int f_level[LIST_SIZE];
+extern int valoflevel;
+extern int currentlevel;
 
-YYSTYPE yylval;
+extern EXPRPTR used_list[LIST_SIZE];
+extern EXPRPTR defined_list[LIST_SIZE];
+extern EXPRPTR new_defs[LIST_SIZE];
+extern EXPRPTR new_decls[LIST_SIZE];
 
-struct {
-	FILE *in_fdes;
-	STRING in_name;
-	int in_line;
-} in_files[12];
+extern EXPRPTR formals_list[LIST_SIZE];
 
-STRING s,t,largest;
+extern FFPTR new_def[LIST_SIZE];
+
+extern int l;
+extern int c;
+extern int peekc;
+extern int errcount;
+extern int in_index;
+extern int true_;
+extern int false_;
+
+extern char cconst;
+extern char linebuf[BUFFERLENGTH];
+
+extern FILE* lexin;
+extern FILE* outfile;
+extern FILE* savelex;
+
+extern YYSTYPE yylval;
+
+struct in_file {
+    FILE*   in_fdes;
+    STRING  in_name;
+    int     in_line;
+};
+extern struct in_file in_files[NOOFFILES];
+
+extern STRING s;
+extern STRING t;
+extern STRING largest;
+
+extern char buffer[500];
