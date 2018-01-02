@@ -1,12 +1,14 @@
-DESTDIR=/usr/local/bin
+CC=clang
 CFLAGS=-g -DYYMAXDEPTH=900
-LINT= lint -p
-TAR= tar -cv
-PRINT= pr -t $1 | cat -n
-inc = cmanifs.h cglobals.h
+DESTDIR=/usr/local/bin
+INC = cmanifs.h cglobals.h y.tab.h
 
-pass5: main.o y.tab.o yylex.o expr.o ident.o;
-	cc -g main.o expr.o y.tab.o yylex.o ident.o -o pass5
+.PHONY: all cp install clean
+
+all: pass5
+
+pass5: main.o y.tab.o yylex.o expr.o ident.o cglobals.o
+	$(CC) $(CFLAGS) -o pass5 main.o y.tab.o yylex.o expr.o ident.o cglobals.o
 
 cp install:
 	cp pass5 $(DESTDIR)/pass5
@@ -15,29 +17,12 @@ cp install:
 clean:
 	rm -f *.o y.tab.h y.tab.c pass5
 
-lint:   main.c expr.c yylex.c ident.c
-	$(LINT) main.c expr.c yylex.c ident.c
+main.o: $(INC) main.c
+y.tab.o: $(INC) y.tab.c
+yylex.o: $(INC) yylex.c
+expr.o: $(INC) expr.c
+ident.o: $(INC) ident.c
+cglobals.o: $(INC) cglobals.c
 
-tape:
-	$(TAR) main.c expr.c yylex.c ident.c cmanifs.h cglobals.h tree.y
-
-print:
-	$(PRINT) main.c expr.c yylex.c ident.c cmanifs.h cglobals.h tree.y
-
-
-all:    main.o y.tab.o yylex.o expr.o ident.o ;
-	cc -g main.o expr.o y.tab.o yylex.o ident.o -o pass5
-	cp pass5 $(DESTDIR)/pass5
-	rm -f *.o y.tab.h y.tab.c pass5
-
-.c.o:
-	cc -c -g $<
-
-main.o: $(inc) main.c
-cmanifs.h: y.tab.h
 y.tab.c y.tab.h: tree.y
 	yacc -d tree.y
-y.tab.o: $(inc) y.tab.h y.tab.c
-yylex.o: $(inc) yylex.c
-expr.o: $(inc) expr.c
-ident.o: $(inc) ident.c

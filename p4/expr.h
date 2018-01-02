@@ -20,4 +20,3 @@ EXPRPTR valofnode(EXPRPTR exprlist);
 EXPRPTR evalofnode(EXPRPTR exprlist);
 
 int yyerror(STRING a);
-

@@ -285,7 +285,7 @@ int my_yyerror(STRING a, STRING b)
         in_files[in_index].in_name);
 	for (int i = 0; i <= curr_length; i++)
     {
-        fprintf(stderr,"%c", linebuf[i]);
+        fprintf(stderr, "%c", linebuf[i]);
     }
     for (int i = 0; i < curr_index - 1; i++)
     {

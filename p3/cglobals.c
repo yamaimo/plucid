@@ -10,8 +10,9 @@ int in_index;
 int true_;
 int false_;
 
+int cconst;
+
 char* largest;
-char cconst;
 char linebuf[BUFFERLENGTH];
 
 FILE* lexin;

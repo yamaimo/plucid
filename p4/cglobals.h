@@ -29,7 +29,8 @@ extern int in_index;
 extern int true_;
 extern int false_;
 
-extern char cconst;
+extern int cconst;
+
 extern char linebuf[BUFFERLENGTH];
 
 extern FILE* lexin;

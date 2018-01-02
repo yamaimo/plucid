@@ -24,7 +24,8 @@ int in_index;
 int true_;
 int false_;
 
-char cconst;
+int cconst;
+
 char linebuf[BUFFERLENGTH];
 
 FILE* lexin;

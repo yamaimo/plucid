@@ -8,8 +8,9 @@ int in_index;
 int true_;
 int false_;
 
+int cconst;
+
 char noclashes;
-char cconst;
 char linebuf[BUFFERLENGTH];
 
 FILE* lexin;

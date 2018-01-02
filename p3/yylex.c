@@ -234,13 +234,7 @@ static char is_sign(char c)
 
 static STRING getstring(char c)
 {
-    STRING p;
-    char strstrg[200];
-    int i;
-    int sptr;
-    int tlen;
-
-    p = buffer;
+    STRING p = buffer;
     l = 0;
     while (c != '`')
     {
