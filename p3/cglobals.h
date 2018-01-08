@@ -1,18 +1,37 @@
-#define copy(x,y) x = y
+#pragma once
 
-int wvr_upon_count;
-int l,c,peekc,errcount,in_index,true,false;
+#include <stdio.h>
+#include "cmanifs.h"
 
-char *largest,cconst,linebuf[200],buffer[500];
+extern int wvr_upon_count;
 
-FILE *lexin, *outfile,*savelex;
+extern int l;
+extern int c;
+extern int peekc;
+extern int errcount;
+extern int in_index;
+extern int true_;
+extern int false_;
 
-YYSTYPE yylval;
+extern int cconst;
 
-struct {
-	FILE *in_fdes;
-	STRING in_name;
-	int in_line;
-} in_files[12];
+extern char* largest;
+extern char linebuf[BUFFERLENGTH];
 
-STRING s,t;
+extern FILE* lexin;
+extern FILE* outfile;
+extern FILE* savelex;
+
+extern YYSTYPE yylval;
+
+struct in_file {
+    FILE*   in_fdes;
+    STRING  in_name;
+    int     in_line;
+};
+extern struct in_file in_files[NOOFFILES];
+
+extern STRING s;
+extern STRING t;
+
+extern char buffer[500];

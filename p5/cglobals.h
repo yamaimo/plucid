@@ -1,46 +1,67 @@
+#pragma once
 
-int filecount,l,c,peekc,errcount,in_index,true,false;
+#include <stdio.h>
+#include "cmanifs.h"
 
-char wordval,cconst,linebuf[200],buffer[500];
-
-FILE *lexin, *outfile,*savelex;
-
-STRING s,t;
 #define MAXFUNCS        104
-#define copy(x,y) x = y
-
-FITEM ftable[MAXFUNCS];
-
-F_STACKPTR f_stack;
-P_STACKPTR p_stack;
-E_STACKPTR parm_stack;
-E_LISTPTR parm_list;
-
-
-YYSTYPE yylval;
-int lexlevel;
-int funclevel;
-int elemlevel;
-int identcount;
-int formalcount;
-int idusage; /* is ident being declared, used, or what? */
 #define HASHSIZE        120
-SYMPTR hashtable[HASHSIZE+1];
-
-FILE *lexin, *outfile;
-
-struct {
-	FILE *in_fdes;
-	STRING in_name;
-	int in_line;
-} in_files[12];
-
-#define MAXSTRINGS        200
-STRING stringtable[MAXSTRINGS];
-STRING wordtable[MAXSTRINGS];
-int stringcount,wordcount;
+#define MAXSTRINGS      200
 #define MAXVARS         400
 #define MAXFILES       1000
-EXPRPTR exprtable[MAXVARS]; /* the expressions trees for each variable */
-STRING  nametable[MAXVARS]; /* the user names for each variable */
-EXPRPTR filetable[MAXFILES];
+
+extern int filecount;
+extern int l;
+extern int c;
+extern int peekc;
+extern int errcount;
+extern int in_index;
+extern int true_;
+extern int false_;
+
+extern int cconst;
+extern int wordval;
+
+extern char linebuf[BUFFERLENGTH];
+
+extern FILE* lexin;
+extern FILE* outfile;
+extern FILE* savelex;
+
+extern YYSTYPE yylval;
+
+struct in_file {
+    FILE*   in_fdes;
+    STRING  in_name;
+    int     in_line;
+};
+extern struct in_file in_files[NOOFFILES];
+
+extern STRING s;
+extern STRING t;
+
+extern char buffer[500];
+
+extern F_STACKPTR f_stack;
+extern P_STACKPTR p_stack;
+extern E_STACKPTR parm_stack;
+extern E_LISTPTR  parm_list;
+
+extern int lexlevel;
+extern int funclevel;
+extern int elemlevel;
+extern int identcount;
+extern int formalcount;
+extern int idusage; /* is ident being declared, used, or what? */
+
+extern SYMPTR hashtable[HASHSIZE + 1];
+
+extern STRING stringtable[MAXSTRINGS];
+extern STRING wordtable[MAXSTRINGS];
+extern int stringcount;
+extern int wordcount;
+
+extern EXPRPTR exprtable[MAXVARS];  /* the expressions trees for each variable */
+extern STRING  nametable[MAXVARS];  /* the user names for each variable */
+extern EXPRPTR filetable[MAXFILES];
+
+extern FITEM ftable[MAXFUNCS];

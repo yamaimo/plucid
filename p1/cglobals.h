@@ -1,54 +1,82 @@
+#pragma once
 
-STRING   incdir;
+#include <stdio.h>
+#include "cmanifs.h"
 
-EXPRPTR  expval[NESTINGDEPTH];
-int      expvalcnt;
-	 /* Used to keep track of the current expression part
-	    of a case statement i.e. case <expr> of ... end */
+extern STRING   incdir;
 
-int      exprlevel,exprlistcount[NESTINGDEPTH];
-	 /* Used to keep count of the number of arguments applied
-	    to a function */
+/*
+ * Used to keep track of the current expression part
+ * of a case statement i.e. case <expr> of ... end
+ */
+extern EXPRPTR  expval[NESTINGDEPTH];
+extern int      expvalcnt;
 
-int      c,peekc;
-	 /* c     - used to hold current character
-	    peekc - used by input routine to allow a one character
-		    lookahead in yylex.c */
+/*
+ * Used to keep count of the number of arguments applied
+ * to a function
+ */
+extern int      exprlevel;
+extern int      exprlistcount[NESTINGDEPTH];
 
-int     newline;
+/*
+ * c     - used to hold current character
+ * peekc - used by input routine to allow a one character
+ *         lookahead in yylex.c
+ */
+extern int      c;
+extern int      peekc;
 
-int      startoflex,curr_index,curr_length,in_index;
-	 /* Used to store information about the current line and
-	    cursor postion. Used to give  pLucid runtime error
-	    messages */
+extern int      newline;
 
-int      const_list;
-	 /* used throughout yylex.c to indicate where or not a list
-	    constant is being read or not */
+/*
+ * Used to store information about the current line and
+ * cursor postion. Used to give  pLucid runtime error
+ * messages
+ */
+extern int      startoflex;
+extern int      curr_index;
+extern int      curr_length;
+extern int      in_index;
 
-int      errcount,false,true;
+/*
+ * used throughout yylex.c to indicate where or not a list
+ * constant is being read or not
+ */
+extern int      const_list;
 
-int      l;
-	 /*    */
+extern int      errcount;
+extern int      false_;
+extern int      true_;
 
-int      idcount;
-	 /* Keeps count of the number of parameters a function is defined
-	    to have. */
+/*    */
+extern int      l;
 
-int     linebuf[BUFFERLENGTH];
-	 /* Used to buffer the current line of characters being
-	    lexically analysed, from current input file. */
+/*
+ * Keeps count of the number of parameters a function is defined
+ * to have.
+ */
+extern int      idcount;
 
-FILE     *lexin;
-	 /* used to hold the value of the current input file */
+/*
+ * Used to buffer the current line of characters being
+ * lexically analysed, from current input file.
+ */
+extern int      linebuf[BUFFERLENGTH];
 
-YYSTYPE  yylval;
+/* used to hold the value of the current input file */
+extern FILE*    lexin;
 
-struct   { FILE   *in_fdes;
-	   STRING in_name;
-	   int    in_line;
-	 } in_files[NOOFFILES];
+extern YYSTYPE  yylval;
 
-STRING   s,t;
+struct in_file {
+    FILE*   in_fdes;
+	STRING  in_name;
+	int     in_line;
+};
+extern struct in_file   in_files[NOOFFILES];
 
-int     buffer[500];
+extern STRING   s;
+extern STRING   t;
+
+extern char     buffer[2000];

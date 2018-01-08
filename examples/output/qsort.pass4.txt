@@ -1,0 +1,275 @@
+[ valof  
+    [ defn qsort 2  
+        [ frmls  x  ]
+        [ valof  
+            [ nglobal  qsort  x  ]
+            [ defn _result 0 
+                [ op 
+                    [ if 0 
+                        [ op 
+                            [ iseod 0 
+                                [ op 
+                                    [ first 0 
+                                        [ op 
+                                            [ next 0  
+                                                [ nullry x 0  ]
+                                            ]
+                                        [ cxfile `../examples/qsort' 3 3 30 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 3 3 24 ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 3 3 18 ]
+                        ]
+                        [ nullry x 0  ]
+                        [ nonnullry follow 2  
+                            [ nonnullry qsort 1  
+                                [ nullry low 0  ]
+                            ]
+                            [ op 
+                                [ fby 0 
+                                    [ op 
+                                        [ first 0  
+                                            [ nullry x 0  ]
+                                        ]
+                                        [ cxfile `../examples/qsort' 4 4 41 ]
+                                    ]
+                                    [ nonnullry qsort 1  
+                                        [ nullry hi 0  ]
+                                    ]
+                                ]
+                                [ cxfile `../examples/qsort' 4 4 49 ]
+                            ]
+                        ]
+                    ]
+                    [ cxfile `../examples/qsort' 3 5 15 ]
+                ]
+            ]
+            [ defn follow 2  
+                [ frmls  a  b  ]
+                [ valof  
+                    [ nglobal  b  a  ]
+                    [ defn _result 0  
+                        [ nullry _1000 0  ]
+                    ]
+                    [ defn _1000 0 
+                        [ op 
+                            [ if 0 
+                                [ op 
+                                    [ not 0 
+                                        [ op 
+                                            [ iseod 0  
+                                                [ nullry a 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 8 8 28 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 8 8 24 ]
+                                ]
+                                [ nullry a 0  ]
+                                [ valof  
+                                    [ nglobal  b  a  ]
+                                    [ defn _result 0 
+                                        [ op 
+                                            [ @t 0  
+                                                [ nullry b 0  ]
+                                                [ nullry _4 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 8 8 50 ]
+                                        ]
+                                    ]
+                                    [ defn _4 0 
+                                        [ op 
+                                            [ fby 0  
+                                                [ const [ numb 0.00000    ] ]
+                                                [ op 
+                                                    [ if 0 
+                                                        [ op 
+                                                            [ iseod 0  
+                                                                [ nullry a 0  ]
+                                                            ]
+                                                            [ cxfile `../examples/qsort' 8 8 55 ]
+                                                        ]
+                                                        [ op 
+                                                            [ plus 0  
+                                                                [ nullry _4 0  ]
+                                                                [ const [ numb 1.00000    ] ]
+                                                            ]
+                                                            [ cxfile `../examples/qsort' 8 8 50 ]
+                                                        ]
+                                                        [ nullry _4 0  ]
+                                                    ]
+                                                    [ cxfile `../examples/qsort' 8 8 50 ]
+                                                ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 8 8 50 ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 8 8 21 ]
+                        ]
+                    ]
+                ]
+            ]
+            [ defn hi 0  
+                [ valof  
+                    [ nglobal  x  ]
+                    [ defn _result 0 
+                        [ op 
+                            [ @t 0 
+                                [ op 
+                                    [ next 0  
+                                        [ nullry x 0  ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 7 7 12 ]
+                                ]
+                                [ nullry _3 0  ]
+                            ]
+                            [ cxfile `../examples/qsort' 7 7 19 ]
+                        ]
+                    ]
+                    [ defn _3 0 
+                        [ op 
+                            [ fby 0  
+                                [ nullry _2 0  ]
+                                [ op 
+                                    [ @t 0  
+                                        [ nullry _2 0  ]
+                                        [ op 
+                                            [ plus 0  
+                                                [ nullry _3 0  ]
+                                                [ const [ numb 1.00000    ] ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 7 7 19 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 7 7 19 ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 7 7 19 ]
+                        ]
+                    ]
+                    [ defn _2 0 
+                        [ op 
+                            [ if 0 
+                                [ op 
+                                    [ le 0 
+                                        [ op 
+                                            [ first 0  
+                                                [ nullry x 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 7 7 23 ]
+                                        ]
+                                        [ op 
+                                            [ next 0  
+                                                [ nullry x 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 7 7 34 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 7 7 31 ]
+                                ]
+                                [ op 
+                                    [ now 0  
+                                        [ const [ numb 1.00000    ] ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 7 7 19 ]
+                                ]
+                                [ op 
+                                    [ next 0  
+                                        [ nullry _2 0  ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 7 7 19 ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 7 7 19 ]
+                        ]
+                    ]
+                ]
+            ]
+            [ defn low 0  
+                [ valof  
+                    [ nglobal  x  ]
+                    [ defn _result 0 
+                        [ op 
+                            [ @t 0 
+                                [ op 
+                                    [ next 0  
+                                        [ nullry x 0  ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 6 6 13 ]
+                                ]
+                                [ nullry _1 0  ]
+                            ]
+                            [ cxfile `../examples/qsort' 6 6 20 ]
+                        ]
+                    ]
+                    [ defn _1 0 
+                        [ op 
+                            [ fby 0  
+                                [ nullry _0 0  ]
+                                [ op 
+                                    [ @t 0  
+                                        [ nullry _0 0  ]
+                                        [ op 
+                                            [ plus 0  
+                                                [ nullry _1 0  ]
+                                                [ const [ numb 1.00000    ] ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 6 6 20 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 6 6 20 ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 6 6 20 ]
+                        ]
+                    ]
+                    [ defn _0 0 
+                        [ op 
+                            [ if 0 
+                                [ op 
+                                    [ lt 0 
+                                        [ op 
+                                            [ next 0  
+                                                [ nullry x 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 6 6 24 ]
+                                        ]
+                                        [ op 
+                                            [ first 0  
+                                                [ nullry x 0  ]
+                                            ]
+                                            [ cxfile `../examples/qsort' 6 6 33 ]
+                                        ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 6 6 31 ]
+                                ]
+                                [ op 
+                                    [ now 0  
+                                        [ const [ numb 1.00000    ] ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 6 6 20 ]
+                                ]
+                                [ op 
+                                    [ next 0  
+                                        [ nullry _0 0  ]
+                                    ]
+                                    [ cxfile `../examples/qsort' 6 6 20 ]
+                                ]
+                            ]
+                            [ cxfile `../examples/qsort' 6 6 20 ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+    [ defn _result 0  
+        [ nonnullry qsort 1  
+            [ nullry input 0  ]
+        ]
+    ]
+]
