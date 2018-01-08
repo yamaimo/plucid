@@ -1,22 +1,29 @@
+#include <stdio.h>
+
 #include "imanifs.h"
 #include "iglobals.h"
-error(x,y,type,val)
-int type;
-CELLUNION val;
-STRING x;
-EXPRPTR y;
+#include "dump.h"
+#include "util.h"
 
-{       
-	int i;
-	if  (!tflags[9]) {  
-		evalerr = true;
-		if (newout) { 
-			for (i=0; i<80; i++) fprintf(stderr,"-");
-			newout = false; 
-		}
-		dumpfile(x,y);
-		dumpmemry(type,val); 
-	}
-	errcount++;
-        if (errcount > 2) { my_exit(1); }
+void error(STRING x, EXPRPTR y, char type, CELLUNION val)
+{
+    if (!tflags[9])
+    {
+        evalerr = true_;
+        if (newout)
+        {
+            for (int i = 0; i < 80; i++)
+            {
+                fprintf(stderr, "-");
+            }
+            newout = false_;
+        }
+        dumpfile(x, y);
+        dumpmemry(type, val);
+    }
+    errcount++;
+    if (errcount > 2)
+    {
+        my_exit(1);
+    }
 }
