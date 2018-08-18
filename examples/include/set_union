@@ -1,0 +1,13 @@
+union(x,y) = c asa isnull xlist
+where
+    x is current x;
+    y is current y;
+    xlist = x fby tl xlist;
+    xitem = hd xlist;
+    c = y fby
+        if not member(xitem,y) then
+            xitem::c
+        else
+            c
+        fi;
+end;

@@ -1,5 +1,5 @@
 [ valof  
-    [ defn qsort 2  
+    [ defn qsort 1  
         [ frmls  x  ]
         [ valof  
             [ nglobal  x  qsort  ]  // current source will output this [ nglobal qsort x ]

@@ -1,0 +1,15 @@
+case hd a of
+    "inter" : intersection(b,c) ;
+    "union" : union(b,c);
+    "member": member(b,c);
+    default :`illegal request';
+end
+where
+    include "set_union";
+    include "set_intersection";
+    include "set_member";
+    include "set_eqlist";
+
+    b = hd tl a;
+    c = hd tl tl a;
+end

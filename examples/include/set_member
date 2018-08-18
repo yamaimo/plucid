@@ -1,0 +1,13 @@
+member(x,y) = not isnull ylist asa done
+where
+    x is current x;
+    y is current y;
+    done = isnull ylist or
+        if isatom yitem then
+            yitem eq x
+        else
+            member(x,yitem)
+        fi;
+    yitem = hd ylist;
+    ylist = y fby tl ylist;
+end;
