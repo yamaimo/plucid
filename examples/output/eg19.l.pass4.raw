@@ -1,0 +1,1 @@
+ [ valof  [ defn tot 1  [ frmls  X  ]  [ valof  [ nglobal  X  ]  [ defn _result 0  [ nullry S 0  ]  ]  [ defn S 0 [ op [ fby 0  [ const [ numb 0.00000    ]  ] [ op [ plus 0  [ nullry S 0  ]  [ nullry X 0  ]  ]  [ cxfile `../examples/eg19.l' 4 4 21 ]  ]  ]  [ cxfile `../examples/eg19.l' 4 4 15 ]  ]  ]  ]  ]  [ defn _result 0  [ nonnullry tot 1  [ nullry input 0  ]  ]  ]  ] 

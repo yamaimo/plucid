@@ -1,0 +1,1 @@
+ [ where  [ var myfirst 1  [ var input 0  ]  ]  [ defn myfirst 1  X  [ where  [ var Y 0  ]  [ defn Y 0 [ op fby 0  [ var X 0  ]  [ var Y 0  ]  [ file '../examples/eg22.l` 4 4 20 ]  ]  ]  ]  ]  ] 

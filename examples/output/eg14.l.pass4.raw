@@ -1,0 +1,1 @@
+ [ valof  [ defn diff 1  [ frmls  A  ]  [ valof  [ nglobal  A  ]  [ defn _result 0  [ nullry _1000 0  ]  ]  [ defn _1000 0 [ op [ minus 0 [ op [ next 0  [ nullry A 0  ]  ]  [ cxfile `../examples/eg14.l' 3 3 14 ]  ]  [ nullry A 0  ]  ]  [ cxfile `../examples/eg14.l' 3 3 21 ]  ]  ]  ]  ]  [ defn _result 0  [ nonnullry diff 1  [ nonnullry diff 1  [ nullry X 0  ]  ]  ]  ]  ] 

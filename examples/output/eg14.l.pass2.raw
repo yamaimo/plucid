@@ -1,0 +1,1 @@
+ [ where  [ var diff 1  [ var diff 1  [ var X 0  ]  ]  ]  [ defn diff 1  A [ op minus 0 [ op next 0  [ var A 0  ]  [ file '../examples/eg14.l` 3 3 14 ]  ]  [ var A 0  ]  [ file '../examples/eg14.l` 3 3 21 ]  ]  ]  ] 

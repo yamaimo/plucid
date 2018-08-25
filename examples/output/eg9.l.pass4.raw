@@ -1,0 +1,1 @@
+ [ valof  [ defn F 0 [ op [ fby 0  [ const [ numb 1.00000    ]  ] [ op [ plus 0  [ nullry F 0  ] [ op [ fby 0  [ const [ numb 0.00000    ]  ]  [ nullry F 0  ]  ]  [ cxfile `../examples/eg9.l' 2 2 21 ]  ]  ]  [ cxfile `../examples/eg9.l' 2 2 16 ]  ]  ]  [ cxfile `../examples/eg9.l' 2 2 10 ]  ]  ]  [ defn _result 0  [ nullry F 0  ]  ]  ] 
