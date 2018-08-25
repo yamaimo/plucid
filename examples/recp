@@ -8,7 +8,7 @@
                         n = (q fby n)+1;
                        end fby nxprime(next q);
 
-          isprime(n) = (p*p gt k asa (p*p ge k) or ( k mod p eq 0))
+          isprime(n) = (p*p > k asa (p*p >= k) or ( k mod p eq 0))
                        where
                          k = first n;
                        end fby isprime(next n);

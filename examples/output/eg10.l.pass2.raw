@@ -1,0 +1,1 @@
+ [ where  [ var F 0  ]  [ defn F 0 [ op fby 0  [ const [ numb 1.00000    ]  ] [ op fby 0  [ var F 0  ] [ op plus 0  [ var F 0  ] [ op next 0  [ var F 0  ]  [ file '../examples/eg10.l` 2 2 26 ]  ]  [ file '../examples/eg10.l` 2 2 24 ]  ]  [ file '../examples/eg10.l` 2 2 18 ]  ]  [ file '../examples/eg10.l` 2 2 11 ]  ]  ]  ] 

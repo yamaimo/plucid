@@ -1,0 +1,1 @@
+ [ where  [ var tot 1  [ var input 0  ]  ]  [ defn tot 1  X  [ where  [ var S 0  ]  [ defn S 0 [ op fby 0  [ const [ numb 0.00000    ]  ] [ op plus 0  [ var S 0  ]  [ var X 0  ]  [ file '../examples/eg19.l` 4 4 21 ]  ]  [ file '../examples/eg19.l` 4 4 15 ]  ]  ]  ]  ]  ] 

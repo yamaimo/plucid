@@ -1,0 +1,1 @@
+ [ valof  [ defn myfirst 1  [ frmls  X  ]  [ valof  [ nglobal  X  ]  [ defn _result 0  [ nullry Y 0  ]  ]  [ defn Y 0 [ op [ fby 0  [ nullry X 0  ]  [ nullry Y 0  ]  ]  [ cxfile `../examples/eg22.l' 4 4 20 ]  ]  ]  ]  ]  [ defn _result 0  [ nonnullry myfirst 1  [ nullry input 0  ]  ]  ]  ] 

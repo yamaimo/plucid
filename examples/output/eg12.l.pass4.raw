@@ -1,0 +1,1 @@
+ [ valof  [ defn S 0 [ op [ fby 0  [ const [ numb 0.00000    ]  ] [ op [ plus 0  [ nullry S 0  ]  [ nullry X 0  ]  ]  [ cxfile `../examples/eg12.l' 3 3 16 ]  ]  ]  [ cxfile `../examples/eg12.l' 3 3 10 ]  ]  ]  [ defn _result 0  [ nullry S 0  ]  ]  ] 
