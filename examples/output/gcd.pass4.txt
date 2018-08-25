@@ -93,7 +93,7 @@
     [ defn gcd 2  
         [ frmls  n  m  ]
         [ valof  
-            [ nglobal  y  x  ]
+            [ nglobal  x  y  ]  // current source will output this [ nglobal y x ]
             [ defn _result 0  
                 [ nullry _1000 0  ]
             ]
