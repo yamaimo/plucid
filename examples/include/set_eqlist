@@ -1,0 +1,8 @@
+eqlist(x,y) =
+    if isnull x then
+        isnull y
+    elseif isatom x then
+        isatom y and x eq y
+    else
+        eqlist(hd x, hd y) and eqlist(tl x, tl y)
+    fi;

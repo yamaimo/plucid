@@ -1,0 +1,13 @@
+intersection(x,y) = c asa isnull xlist
+where
+    x is current x;
+    y is current y;
+    c = nil fby
+        if member(xitem,y) then
+            xitem::c
+        else
+            c
+        fi;
+    xitem = hd xlist;
+    xlist = x fby tl xlist;
+end;

@@ -1,27 +1,43 @@
 CC=clang
 CFLAGS=-O -DYYMAXDEPTH=900
 DESTDIR=/usr/local/bin
-INC = cmanifs.h cglobals.h y.tab.h
 
-.PHONY: all cp install clean
+.PHONY: all cp install clean test
 
 all: pass1
 
-pass1: main.o y.tab.o yylex.o expr.o cglobals.o
-	$(CC) $(CFLAGS) -o pass1 main.o y.tab.o yylex.o expr.o cglobals.o
+pass1: main.o lex.yy.o y.tab.o node.o common.o
+	$(CC) $(CFLAGS) -o $@ $^
 
 cp install:
 	cp pass1 $(DESTDIR)/pass1
-	rm -f *.o y.tab.h y.tab.c pass1
+	rm -f *.o lex.yy.c y.tab.h y.tab.c pass1
 
 clean:
-	rm -f *.o y.tab.h y.tab.c pass1
+	rm -f *.o lex.yy.c y.tab.h y.tab.c pass1
 
-main.o: $(INC) main.c
-y.tab.o: $(INC) y.tab.c
-yylex.o: $(INC) yylex.c
-expr.o: $(INC) expr.c
-cglobals.o: $(INC) cglobals.c
+test: pass1
+	bash test.sh
+	bash include_test.sh
 
-y.tab.c y.tab.h: flucid.y
-	yacc -d flucid.y
+main.o: main.c
+lex.yy.o: lex.yy.c
+y.tab.o: y.tab.c
+node.o: node.c
+common.o: common.c
+
+lex.yy.c: plucid.l
+	lex plucid.l
+
+y.tab.c y.tab.h: plucid.y
+	yacc -d plucid.y
+
+# add dependency
+
+main.o: common.h plucid.h
+lex.yy.o: plucid.h y.tab.h
+y.tab.o: plucid.h y.tab.h
+node.o: common.h node.h
+common.o: common.h
+lex.yy.c: plucid.h y.tab.h
+y.tab.c y.tab.h: plucid.h

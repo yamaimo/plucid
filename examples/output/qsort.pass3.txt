@@ -2,7 +2,7 @@
     [ var qsort 1
         [ var input 0 ]
     ]
-    [ defn qsort 2  x
+    [ defn qsort 1  x
         [ where
             [ op if 0
                 [ op iseod 0
